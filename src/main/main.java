@@ -11,7 +11,7 @@ public class main {
 		// DB 연결
 		DBConnection.initConnection();
 		Singleton s = Singleton.getInstance();
-		s.memCtrl.login();
+		s.memCtrl.loginView();
 		
 	}
 

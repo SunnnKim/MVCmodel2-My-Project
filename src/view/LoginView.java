@@ -115,24 +115,26 @@ public class LoginView extends Frame implements WindowListener, ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton nowBtn = (JButton)e.getSource();
-	
-			/*
+
+		Singleton s = Singleton.getInstance();
+		if(nowBtn == login) {
+			// 로그인아이디 확인하기
 			String id = idTxt.getText();
 			String pwd = pwTxt.getText();
 			if(id.trim().equals("")|| pwd.trim().equals("")) {
 				JOptionPane.showMessageDialog(null, "아이디/패스워드를 모두 입력하세요!");
 				return;
 			}
-			MemberDao dao = MemberDao.getInstance();
-			MemberDto dto = dao.login(id, pwd);
+			
+			MemberDto dto = s.memCtrl.login(id, pwd);
 			idTxt.setText("");
 			pwTxt.setText("");
 			
 			if(dto!=null) {
-				dao.setLoginId(id);
-				JOptionPane.showMessageDialog(null, dao.getLoginId()+ "님, 로그인 성공!");
+				s.setLoginDto(dto);
+				JOptionPane.showMessageDialog(null, dto.getName()+ "님, 로그인 성공!");
 				dispose();
-				new BbsListView();
+				s.bbsCtrl.getBbsList();
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "로그인실패! \n아이디/패스워드를 잘못 입력했습니다.");
@@ -141,20 +143,6 @@ public class LoginView extends Frame implements WindowListener, ActionListener {
 			
 				
 			
-			
-		}
-		else if( nowBtn == join) {
-			
-			dispose();
-			new JoinView();
-			
-			
-		}
-		
-		*/
-		Singleton s = Singleton.getInstance();
-		if(nowBtn == login) {
-		
 		}
 		else if( nowBtn == join) {
 			
